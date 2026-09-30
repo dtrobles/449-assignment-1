@@ -1,3 +1,6 @@
+## Name and UMID
+- Dylan Robles (dtrobles)
+
 ## Features
 
 - Persistent SQLite task storage with due dates, categories, and priorities
@@ -36,3 +39,8 @@ py cli\planner.py complete 1
 ## Architecture
 
 `main.jac` is the default Jac entry point and launches the shared planner server. The web dashboard and mobile PWA are served by that server and call its JSON API. The terminal client calls the same API; `cli\main.jac` remains its Jac entry point for Jac environments that support script arguments. This keeps every interface synchronized while SQLite provides persistence between sessions.
+
+# Short Description
+Planboard uses one shared Jac-launched server and SQLite database as its core. The web frontend provides a full dashboard for adding, organizing, completing, and deleting tasks. The mobile PWA connects to the same API for quick daily task capture and completion on a phone. The CLI also uses that API, making it easy to add tasks or check today’s plan from a terminal. Because each interface communicates with the same backend, every task stays synchronized.
+
+What makes the project impressive is that it is a complete, cohesive planning tool rather than separate demos: it has persistent data, a polished responsive web interface, a mobile-installable experience, useful terminal workflows, input validation, and a single shared backend that keeps every client consistent.
