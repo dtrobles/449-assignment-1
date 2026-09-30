@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Planboard</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div><p class="eyebrow">DTROBLES' PERSONAL PLANNER</p><h1>Planboard</h1></div>
+      <a class="mobile-link" href="/mobile/">Open mobile view</a>
+    </header>
+    <section class="metrics" aria-label="Task summary">
+      <article><span id="total">0</span><small>all tasks</small></article>
+      <article><span id="today">0</span><small>due today</small></article>
+      <article><span id="overdue">0</span><small>overdue</small></article>
+      <article><span id="done">0</span><small>completed</small></article>
+    </section>
+    <section class="layout">
+      <form id="task-form" class="panel">
+        <h2>Capture a task</h2>
+        <label>What needs doing?<input name="title" required maxlength="160" placeholder="Finish EECS reading"></label>
+        <div class="two-columns">
+          <label>Due date<input name="due_date" type="date"></label>
+          <label>Priority<select name="priority"><option value="high">High</option><option value="medium" selected>Medium</option><option value="low">Low</option></select></label>
+        </div>
+        <label>Area<input name="category" value="Personal" maxlength="60"></label>
+        <button>Add to plan</button>
+        <p id="form-message" class="message" role="status"></p>
+      </form>
+      <section class="panel tasks-panel">
+        <div class="tasks-heading"><div><h2>My plan</h2><p id="task-count">Loading tasks...</p></div><button id="show-completed" class="quiet" type="button">Show completed</button></div>
+        <ul id="task-list" class="task-list" aria-live="polite"></ul>
+      </section>
+    </section>
+  </main>
+  <template id="task-template">
+    <li class="task">
+      <input class="toggle" type="checkbox" aria-label="Mark task complete">
+      <div class="task-copy"><strong></strong><span></span></div>
+      <button class="delete" type="button" aria-label="Delete task">Delete</button>
+    </li>
+  </template>
+  <script src="/assets/app.js"></script>
+</body>
+</html>
